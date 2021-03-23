@@ -21,30 +21,31 @@ app.get('/usuario', function(req, res) {
 });
 
 
-// app.post('/usuario', function(req, res) {
-//     let nombre = req.body.nombre;
-//     let body = req.body;
-//     if (nombre === undefined) {
-//         res.status(400).json({
-//             ok: 400,
-//             mensaje: ' Favor de enviar el valor del nombre'
-//         });
-//     } else {
-//         res.json({
-//             ok: 200,
-//             mensaje: 'Usuario insertado con exito',
-//             body = body,
+app.post('/usuario', function(req, res) {
+    let nombre = req.body.nombre;
+    let body = req.body;
+    if (nombre === undefined) {
+        res.status(400).json({
+            ok: 400,
+            mensaje: ' Favor de enviar el valor del nombre'
+        });
+    } else {
+        res.json({
+            ok: 200,
+            mensaje: 'Usuario insertado con exito',
+            body: body,
 
-//         });
-//     }
-// });
+        });
+    }
+});
 
 app.delete('/usuario/:id', function(req, res) {
     let id = req.params.id;
     res.json({
         ok: 200,
         mensaje: 'usuario eliminado con exito',
-        id: id
+        id: id,
+        nombre: nombre
     });
 })
 
